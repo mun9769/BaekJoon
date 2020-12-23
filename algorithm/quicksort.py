@@ -14,5 +14,3 @@ def quickSort(array):
 result = quickSort(numbers)
 print(result)
 
-N=int(input())
-a=[int(input()) for _ in range(N)]
