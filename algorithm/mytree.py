@@ -15,18 +15,19 @@ class Node():
             if self.value == 9:
                 self.right = None
 
-
 class Tree():
     def __init__(self,value):
         self.root = Node(value)
-    
+        self.cnt = 0
     def levelorder(self,root,_level):
         q = []
         q.append(root)
         while q:
             t = q.pop(0)
             if t.level == _level:
-                print(t.value,'',end='')
+                if t.value == 0 or t.value == 9:
+                    self.cnt += 1
+                # print(t.value,'',end='')
             if t.left != None:
                 q.append(t.left)
             if t.right != None:
@@ -46,8 +47,8 @@ if __name__ == "__main__":
             i.root.left.add_my_node()
         if i.root.right != None:
             i.root.right.add_my_node()
-
+    sum = 0
     for i in lst:
-        i.levelorder(i.root,2)
-    
-    # lst[0].levelorder(lst[0].root,2)
+        i.levelorder(i.root,3)
+        sum += i.cnt
+    print(sum)
